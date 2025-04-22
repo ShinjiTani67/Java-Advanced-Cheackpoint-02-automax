@@ -45,8 +45,7 @@ public class CarroService {
     }
 //    public void deletarPorId(Long id) {
 //        repository.deleteById(id);
-//
-//    }
+//}
 //
 //    public CategoriaDTO findById(Long id) {
 //        Optional<Categoria> byId = repository.findById(id);
