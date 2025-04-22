@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import repository.CarroRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,4 +43,16 @@ public class CarroService {
                 .collect(Collectors.toList());
         return carro;
     }
+//    public void deletarPorId(Long id) {
+//        repository.deleteById(id);
+//
+//    }
+//
+//    public CategoriaDTO findById(Long id) {
+//        Optional<Categoria> byId = repository.findById(id);
+//        if (byId.isPresent()){
+//            return convertToDTO(byId.get());
+//        }
+//        throw new RuntimeException("id not found");
+//    }
 }
