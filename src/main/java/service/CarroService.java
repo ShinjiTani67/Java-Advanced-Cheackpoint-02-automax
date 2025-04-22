@@ -43,12 +43,12 @@ public class CarroService {
                 .collect(Collectors.toList());
         return carro;
     }
-//    public void deletarPorId(Long id) {
-//        repository.deleteById(id);
+//    public void deletarPorId(Uuid uuid) {
+//        repository.deleteById(uuid);
 //}
 //
-//    public CategoriaDTO findById(Long id) {
-//        Optional<Categoria> byId = repository.findById(id);
+//    public CarroDTO findById(Long id) {
+//        Optional<Carro> byUuid = repository.findById(uuid);
 //        if (byId.isPresent()){
 //            return convertToDTO(byId.get());
 //        }
