@@ -17,7 +17,7 @@ public class CarroService {
 
     private CarroDTO convertToDTO(Carro carro) {
         CarroDTO dto = new CarroDTO();
-        dto.setUuid(carro.getUuid());
+        dto.setId(carro.getId());
         dto.setModelo(carro.getModelo());
         dto.setDatavenda(carro.getDatavenda());
         dto.setPreco(carro.getPreco());
@@ -26,7 +26,7 @@ public class CarroService {
 
     private Carro convertToEntity(CarroDTO dto){
         Carro carro = new Carro();
-        carro.setUuid(dto.getUuid());
+        carro.setId(dto.getId());
         carro.setModelo(dto.getModelo());
         return carro;
     }

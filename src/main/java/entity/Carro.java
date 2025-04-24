@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -23,7 +24,7 @@ public class Carro {
     @Column(name="preco",length = 100, nullable = false)
     private double preco;
 
-    @DateTimeFormat
-    private int datavenda;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate datavenda;
 
 }
