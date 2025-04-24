@@ -2,10 +2,10 @@ package service;
 
 import dto.CarroDTO;
 import entity.Carro;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import repository.CarroRepository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,6 +28,8 @@ public class CarroService {
         Carro carro = new Carro();
         carro.setId(dto.getId());
         carro.setModelo(dto.getModelo());
+        carro.setPreco(dto.getPreco());
+        carro.setDatavenda(dto.getDatavenda());
         return carro;
     }
 
@@ -38,20 +40,20 @@ public class CarroService {
     }
 
     public List<CarroDTO> getCarro(){
-        List<CarroDTO> carro = repository.findAll().stream()
+        return repository.findAll().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
-        return carro;
     }
-    public void deletarPorId(Id id) {
+
+    public void deletarPorId(Long id) {
         repository.deleteById(id);
-}
+    }
 
     public CarroDTO findById(Long id) {
-        Optional<Carro> byUuid = repository.findById(id);
-        if (findById().isPresent()){
+        Optional<Carro> byId = repository.findById(id);
+        if (byId.isPresent()){
             return convertToDTO(byId.get());
         }
-        throw new RuntimeException("id not found");
+        throw new RuntimeException("Carro com id " + id + " não encontrado.");
     }
 }

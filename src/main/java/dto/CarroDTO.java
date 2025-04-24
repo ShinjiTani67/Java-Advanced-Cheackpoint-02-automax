@@ -1,15 +1,10 @@
 package dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.UUID;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +17,6 @@ public class CarroDTO {
 
     private double preco;
 
-    private int datavenda;
+    private LocalDate datavenda;
 
 }
