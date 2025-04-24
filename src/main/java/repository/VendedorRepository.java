@@ -1,11 +1,11 @@
 package repository;
 
-import entity.Vendendor;
+import entity.Vendedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface VendendorRepository extends JpaRepository<Vendendor, Long> {
-    Optional<Vendendor> findById(long id);
+public interface VendendorRepository extends JpaRepository<Vendedor, Long> {
+    Optional<Vendedor> findById(long id);
 }
 

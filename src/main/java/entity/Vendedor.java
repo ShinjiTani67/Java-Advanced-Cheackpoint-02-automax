@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Entity
 @Data
 @ToString
-public class Vendendor {
+public class Vendedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

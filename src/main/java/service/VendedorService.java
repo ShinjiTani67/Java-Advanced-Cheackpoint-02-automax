@@ -3,7 +3,6 @@ package service;
 import dto.VendedorDTO;
 import dto.VendendorDTO;
 import entity.Vendedor;
-import entity.Vendendor;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,28 +18,28 @@ import java.util.stream.Collectors;
 public class VendedorService {
     private final VendendorRepository repository;
 
-    private VendedorDTO convertToDTO(Vendendor vendendor) {
+    private VendedorDTO convertToDTO(Vendedor vendedor) {
         VendedorDTO dto = new VendedorDTO();
-        dto.setId(vendendor.getId());
-        dto.setNome(vendendor.getNome());
-        dto.setSalario(vendendor.getSalario());
-        dto.setDataAdmissao(vendendor.getDataAdmissao());
+        dto.setId(vendedor.getId());
+        dto.setNome(vendedor.getNome());
+        dto.setSalario(vendedor.getSalario());
+        dto.setDataAdmissao(vendedor.getDataAdmissao());
         return dto;
     }
 
-    private Vendendor convertToEntity(VendendorDTO dto){
-        Vendendor vendendor = new Vendendor();
-        vendendor.setId(dto.getId());
-        vendendor.setNome(dto.getNome());
-        vendendor.setSalario(dto.getSalario());
-        vendendor.setDataadmissao(dto.getDataadmissao());
-        return vendendor;
+    private Vendedor convertToEntity(VendendorDTO dto){
+        Vendedor vendedor = new Vendedor();
+        vendedor.setId(dto.getId());
+        vendedor.setNome(dto.getNome());
+        vendedor.setSalario(dto.getSalario());
+        vendedor.setDataadmissao(dto.getDataadmissao());
+        return vendedor;
     }
 
     public VendedorDTO save(@Valid VendendorDTO vendedorDTO){
         Vendedor vendedor = convertToEntity(vendedorDTO);
         vendedor = repository.save(vendedor);
-        return convertToDTO(vendedor);
+        return convertToDTO(vendendor);
     }
 
     public List<VendedorDTO> getVendedores(){
