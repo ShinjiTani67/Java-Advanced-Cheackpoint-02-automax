@@ -5,28 +5,30 @@
 </head>
 <body>
 <h1>Lista de Carros</h1>
+
+<a href="/template.carro/novo">Novo Carro</a>
+
 <table border="1">
     <thead>
     <tr>
+        <th>ID</th>
         <th>Modelo</th>
         <th>Preço</th>
-        <th>Data da Venda</th>
+        <th>Data de Venda</th>
         <th>Ações</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="carro : ${carro}">
+    <tr th:each="carro : ${template.carro}">
+        <td th:text="${carro.id}"></td>
         <td th:text="${carro.modelo}"></td>
         <td th:text="${carro.preco}"></td>
         <td th:text="${carro.datavenda}"></td>
         <td>
-            <!-- Aqui pode adicionar link de edição futuramente -->
-            <a th:href="@{/carro/deletar/{id}(id=${carro.id})}">Excluir</a>
+            <a th:href="@{'/template.carro/editar/' + ${carro.id}}">Deletar</a>
         </td>
     </tr>
     </tbody>
 </table>
-
-<a th:href="@{/carro/novo}">Cadastrar novo carro</a>
 </body>
 </html>
