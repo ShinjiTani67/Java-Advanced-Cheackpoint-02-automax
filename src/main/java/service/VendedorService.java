@@ -1,7 +1,6 @@
 package service;
 
 import dto.VendedorDTO;
-import dto.VendendorDTO;
 import entity.Vendedor;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -27,7 +26,7 @@ public class VendedorService {
         return dto;
     }
 
-    private Vendedor convertToEntity(VendendorDTO dto){
+    private Vendedor convertToEntity(VendedorDTO dto){
         Vendedor vendedor = new Vendedor();
         vendedor.setId(dto.getId());
         vendedor.setNome(dto.getNome());
@@ -36,7 +35,7 @@ public class VendedorService {
         return vendedor;
     }
 
-    public VendedorDTO save(@Valid VendendorDTO vendedorDTO){
+    public VendedorDTO save(@Valid VendedorDTO vendedorDTO){
         Vendedor vendedor = convertToEntity(vendedorDTO);
         vendedor = repository.save(vendedor);
         return convertToDTO(vendendor);

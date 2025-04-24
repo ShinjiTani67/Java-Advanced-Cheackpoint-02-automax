@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class VendendorDTO {
+public class VendedorDTO {
     private long id;
 
     private String nome;

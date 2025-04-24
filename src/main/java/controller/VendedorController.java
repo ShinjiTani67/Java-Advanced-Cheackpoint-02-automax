@@ -1,6 +1,6 @@
 package controller;
 
-import dto.VendendorDTO;
+import dto.VendedorDTO;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,13 +26,13 @@ public class VendedorController {
 
     @GetMapping("/novo")
     public String novoVendedor(Model model){
-        model.addAttribute("template.vendedor", new VendendorDTO());
+        model.addAttribute("template.vendedor", new VendedorDTO());
         return "template.vendedor/formulario";
     }
 
     @PostMapping("/salvar")
     public String salvarVendedor(
-            @Valid @ModelAttribute("template.vendedor") VendendorDTO vendedorDTO,
+            @Valid @ModelAttribute("template.vendedor") VendedorDTO vendedorDTO,
             BindingResult bindingResult,
             Model model
     ) {
