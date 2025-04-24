@@ -20,7 +20,7 @@ public class VendedorController {
 
     @GetMapping
     public String listarVendedor(Model model) {
-        model.addAttribute("template.vendedor", service.getVendedor());
+        model.addAttribute("template.vendedor", service.getVendedores());
         return "template.vendedor/lista";
     }
 
@@ -47,3 +47,7 @@ public class VendedorController {
 
     @GetMapping("/editar/{id}")
     public String deletar(@PathVariable Long id){
+        service.deletarPorId(id);
+        return "redirect:/vendedor";
+    }
+}
