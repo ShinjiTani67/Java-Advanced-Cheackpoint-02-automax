@@ -5,7 +5,6 @@ import dto.CarroDTO;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -15,32 +14,32 @@ import service.CarroService;
 @Controller
 @AllArgsConstructor
 @Log
-@RequestMapping("/carro")
+@RequestMapping("/template.carro")
 public class CarroController {
 
     private final CarroService service;
 
     @GetMapping
     public String listarCarro(Model model) {
-        model.addAttribute("carro", service.getCarro());
-        return "carro/lista";
+        model.addAttribute("template.carro", service.getCarro());
+        return "template.carro/lista";
     }
 
     @GetMapping("/novo")
     public String novoCarro(Model model){
-        model.addAttribute("carro", new CarroDTO());
-        return "carro/formulario";
+        model.addAttribute("template.carro", new CarroDTO());
+        return "template.carro/formulario";
     }
     @PostMapping("/salvar")
     public String salvarCarro(
-            @Valid @ModelAttribute("carro") CarroDTO carroDTO,
+            @Valid @ModelAttribute("template.carro") CarroDTO carroDTO,
             BindingResult bindingResult,
             Model model
     ) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(e -> log.info(e.toString()));
-            model.addAttribute("carro", carroDTO);
-            return "carro/formulario";
+            model.addAttribute("template.carro", carroDTO);
+            return "template.carro/formulario";
         }
         service.save(carroDTO);
         return "redirect:/carro";
