@@ -15,7 +15,7 @@ public class Carro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID uuid;
+    private long id;
 
     @Column(name="modelo",length = 100, nullable = false)
     private String modelo;

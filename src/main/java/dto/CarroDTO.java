@@ -16,7 +16,7 @@ import java.util.UUID;
 @Data
 public class CarroDTO {
 
-    private UUID uuid;
+    private long id;
 
     private String modelo;
 
