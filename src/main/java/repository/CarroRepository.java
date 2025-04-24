@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface CarroRepository extends JpaRepository {
-    Optional<Carro> findByUuid(UUID uuid);
+    Optional<Carro> findById(long id);
 }
