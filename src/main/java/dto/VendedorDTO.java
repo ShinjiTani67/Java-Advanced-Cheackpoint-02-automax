@@ -1,24 +1,23 @@
 package dto;
 
-import jakarta.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Carro {
+public class VendendorDTO {
 
     private long id;
 
-    private String modelo;
+    private String nome;
 
-    private double preco;
+    private double salario;
 
-    private LocalDate datavenda;
+    private LocalDate dataadmissao;
 
 }

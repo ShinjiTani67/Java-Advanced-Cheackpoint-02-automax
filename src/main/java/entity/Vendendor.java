@@ -25,6 +25,6 @@ public class Vendendor {
     private double salario;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataentrada;
+    private LocalDate dataadmissao;
 
 }
