@@ -4,9 +4,9 @@
     <title>Cadastro de Carros</title>
 </head>
 <body>
-<h1 th:text="${template.carro.id != null} ? 'Editar Carro' : 'Novo Carro'">Novo Carro</h1>
+<h1 th:text="${carro.id != null} ? 'Editar Carro' : 'Novo Carro'">Novo Carro</h1>
 
-<form th:action="@{/template.carro/salvar}" th:object="${template.carro}" method="post">
+<form th:action="@{/carro/salvar}" th:object="${carro}" method="post">
     <input type="hidden" th:field="*{id}" />
 
     <label>Modelo:</label>
@@ -22,7 +22,7 @@
     <br/>
 
     <button type="submit">Salvar</button>
-    <a href="/carro">Voltar</a>
+    <a th:href="@{/carro}">Voltar</a>
 </form>
 </body>
 </html>

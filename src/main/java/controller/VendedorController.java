@@ -37,11 +37,13 @@ public class VendedorController {
             Model model
     ) {
         if (bindingResult.hasErrors()) {
-            bindingResult.getAllErrors().forEach(e -> log.info(e.toString()));
-            model.addAttribute("template.vendedor", vendedorDTO);
-            return "template.vendedor/formulario";
+            log.warn("Erros de validação ao salvar vendedor:");
+            bindingResult.getAllErrors().forEach(e -> log.warn(e.toString()));
+            model.addAttribute("vendedor", vendedorDTO);
+            return "vendedor/formulario";
         }
         service.save(vendedorDTO);
+        log.info("Salvando vendedor: {}", vendedorDTO);
         return "redirect:/vendedor";
     }
 

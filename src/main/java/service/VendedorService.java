@@ -6,7 +6,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import repository.VendedorRepository;
-import repository.VendendorRepository;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class VendedorService {
-    private final VendendorRepository repository;
+    private final VendedorRepository repository;
 
     private VendedorDTO convertToDTO(Vendedor vendedor) {
         VendedorDTO dto = new VendedorDTO();
         dto.setId(vendedor.getId());
         dto.setNome(vendedor.getNome());
         dto.setSalario(vendedor.getSalario());
-        dto.setDataAdmissao(vendedor.getDataAdmissao());
+        dto.setDataadmissao(vendedor.getDataadmissao());
         return dto;
     }
 
@@ -38,7 +38,7 @@ public class VendedorService {
     public VendedorDTO save(@Valid VendedorDTO vendedorDTO){
         Vendedor vendedor = convertToEntity(vendedorDTO);
         vendedor = repository.save(vendedor);
-        return convertToDTO(vendendor);
+        return convertToDTO(vendedor);
     }
 
     public List<VendedorDTO> getVendedores(){
