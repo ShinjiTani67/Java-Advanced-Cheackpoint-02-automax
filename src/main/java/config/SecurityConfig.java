@@ -1,4 +1,4 @@
-package com.suaempresa.suaplicacao.config;
+package fiap.com.br.automax.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        https
+        http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/vendedor/novo", "/vendedor/salvar", "/vendedor/editar/**", "/vendedor/deletar/**").hasRole("ADMIN")
                 .requestMatchers("/vendedor/**").hasAnyRole("ADMIN", "USER")

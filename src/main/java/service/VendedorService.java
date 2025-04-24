@@ -1,7 +1,9 @@
 package service;
 
 import dto.VendedorDTO;
+import dto.VendendorDTO;
 import entity.Vendedor;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import repository.VendedorRepository;
@@ -33,7 +35,7 @@ public class VendedorService {
         return vendedor;
     }
 
-    public VendedorDTO save(VendedorDTO vendedorDTO){
+    public VendedorDTO save(@Valid VendendorDTO vendedorDTO){
         Vendedor vendedor = convertToEntity(vendedorDTO);
         vendedor = repository.save(vendedor);
         return convertToDTO(vendedor);

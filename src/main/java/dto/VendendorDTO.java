@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class VendendorDTO {
-
     private long id;
 
     private String nome;
@@ -19,5 +18,4 @@ public class VendendorDTO {
     private double salario;
 
     private LocalDate dataadmissao;
-
 }
