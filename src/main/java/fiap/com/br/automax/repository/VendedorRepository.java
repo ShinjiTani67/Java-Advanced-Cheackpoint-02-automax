@@ -1,6 +1,6 @@
-package repository;
+package fiap.com.br.automax.repository;
 
-import entity.Vendedor;
+import fiap.com.br.automax.entity.Vendedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

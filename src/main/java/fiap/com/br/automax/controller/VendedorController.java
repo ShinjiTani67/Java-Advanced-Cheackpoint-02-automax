@@ -1,6 +1,6 @@
-package controller;
+package fiap.com.br.automax.controller;
 
-import dto.VendedorDTO;
+import fiap.com.br.automax.dto.VendedorDTO;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import service.VendedorService;
+import fiap.com.br.automax.service.VendedorService;
 
 @Controller
 @AllArgsConstructor
@@ -37,7 +37,7 @@ public class VendedorController {
             Model model
     ) {
         if (bindingResult.hasErrors()) {
-            log.warn("Erros de validação ao salvar vendedor:");
+            log.warn("Erros de validacao ao salvar vendedor:");
             bindingResult.getAllErrors().forEach(e -> log.warn(e.toString()));
             model.addAttribute("vendedor", vendedorDTO);
             return "vendedor/formulario";

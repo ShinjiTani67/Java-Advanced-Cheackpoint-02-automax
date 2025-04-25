@@ -1,6 +1,6 @@
-package controller;
+package fiap.com.br.automax.controller;
 
-import dto.CarroDTO;
+import fiap.com.br.automax.dto.CarroDTO;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import service.CarroService;
+import fiap.com.br.automax.service.CarroService;
+
 
 @Controller
 @AllArgsConstructor
@@ -37,7 +38,7 @@ public class CarroController {
             Model model
     ) {
         if (bindingResult.hasErrors()) {
-            log.warn("Erros de validação ao salvar carro:");
+            log.warn("Erros de validacao ao salvar carro:");
             bindingResult.getAllErrors().forEach(e -> log.warn(e.toString()));
             model.addAttribute("carro", carroDTO);
             return "carro/formulario";

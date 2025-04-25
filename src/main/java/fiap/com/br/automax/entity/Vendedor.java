@@ -1,4 +1,4 @@
-package entity;
+package fiap.com.br.automax.entity;
 
 
 import jakarta.persistence.*;

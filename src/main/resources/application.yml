@@ -44,4 +44,4 @@ logging:
         type:
           descriptor:
             sql:
-              BasicBinder: TRACE  # Mostra parâmetros das queries
+              BasicBinder: TRACE  # Mostra parametros das queries

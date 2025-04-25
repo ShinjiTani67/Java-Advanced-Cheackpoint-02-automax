@@ -1,11 +1,10 @@
-package service;
+package fiap.com.br.automax.service;
 
-import dto.CarroDTO;
-import entity.Carro;
+import fiap.com.br.automax.dto.CarroDTO;
+import fiap.com.br.automax.entity.Carro;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.CarroRepository;
-
+import fiap.com.br.automax.repository.CarroRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

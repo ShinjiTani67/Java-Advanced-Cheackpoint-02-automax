@@ -1,11 +1,11 @@
-package service;
+package fiap.com.br.automax.service;
 
-import dto.VendedorDTO;
-import entity.Vendedor;
+import fiap.com.br.automax.dto.VendedorDTO;
+import fiap.com.br.automax.entity.Vendedor;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.VendedorRepository;
+import fiap.com.br.automax.repository.VendedorRepository;
 
 
 import java.util.List;

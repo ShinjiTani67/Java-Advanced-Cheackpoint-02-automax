@@ -1,4 +1,4 @@
-package dto;
+package fiap.com.br.automax.dto;
 
 
 import lombok.AllArgsConstructor;
