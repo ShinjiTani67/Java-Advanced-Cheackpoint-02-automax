@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Vendedores</title>
+</head>
+<body>
+<h1>Lista de Vendedores</h1>
+
+<a th:href="@{/template.vendedor/novo}">Cadastrar novo Vendedor</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de Admissão</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vendedor : ${template_vendedor}">
+        <td th:text="${vendedor.id}">1</td>
+        <td th:text="${vendedor.nome}">Nome</td>
+        <td th:text="${vendedor.cpf}">CPF</td>
+        <td th:text="${#temporals.format(vendedor.dataAdmissao, 'dd/MM/yyyy')}">Data</td>
+        <td>
+            <a th:href="@{'/template.vendedor/editar/' + ${vendedor.id}}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

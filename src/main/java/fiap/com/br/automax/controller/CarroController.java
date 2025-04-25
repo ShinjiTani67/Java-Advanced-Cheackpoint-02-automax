@@ -22,7 +22,7 @@ public class CarroController {
     @GetMapping
     public String listarCarro(Model model) {
         model.addAttribute("carro", service.getCarro());
-        return "template.carro/lista";
+        return "template/template.carro/lista";
     }
 
     @GetMapping("/novo")
