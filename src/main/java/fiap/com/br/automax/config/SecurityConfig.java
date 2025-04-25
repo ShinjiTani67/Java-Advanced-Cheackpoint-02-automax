@@ -17,13 +17,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/vendedor/novo", "/vendedor/salvar", "/vendedor/editar/**", "/vendedor/deletar/**").hasRole("ADMIN")
-                .requestMatchers("/vendedor/**").hasAnyRole("ADMIN", "USER")
-                .anyRequest().authenticated()
-            )
-            .formLogin(Customizer.withDefaults())
-            .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll());
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/home").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers("/vendedor/novo", "/vendedor/salvar", "/vendedor/editar/**", "/vendedor/deletar/**").hasRole("ADMIN")
+                        .requestMatchers("/vendedor/**").hasAnyRole("ADMIN", "USER")
+                        .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .defaultSuccessUrl("/", true)
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll()
+                );
 
         return http.build();
     }
@@ -31,14 +38,14 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         return new InMemoryUserDetailsManager(
-            User.withUsername("admin")
-                .password(encoder.encode("admin123"))
-                .roles("ADMIN")
-                .build(),
-            User.withUsername("usuario")
-                .password(encoder.encode("usuario123"))
-                .roles("USER")
-                .build()
+                User.withUsername("admin")
+                        .password(encoder.encode("admin123"))
+                        .roles("ADMIN")
+                        .build(),
+                User.withUsername("usuario")
+                        .password(encoder.encode("usuario123"))
+                        .roles("USER")
+                        .build()
         );
     }
 
