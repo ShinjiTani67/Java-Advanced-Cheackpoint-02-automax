@@ -13,26 +13,26 @@ import fiap.com.br.automax.service.VendedorService;
 @Controller
 @AllArgsConstructor
 @Slf4j
-@RequestMapping("/template.vendedor")
+@RequestMapping("/vendedor")
 public class VendedorController {
 
     private final VendedorService service;
 
     @GetMapping
     public String listarVendedor(Model model) {
-        model.addAttribute("template.vendedor", service.getVendedores());
-        return "template.vendedor/lista";
+        model.addAttribute("vendedor", service.getVendedores());
+        return "vendedor/lista";
     }
 
     @GetMapping("/novo")
     public String novoVendedor(Model model){
-        model.addAttribute("template.vendedor", new VendedorDTO());
-        return "template.vendedor/formulario";
+        model.addAttribute("vendedor", new VendedorDTO());
+        return "vendedor/formulario";
     }
 
     @PostMapping("/salvar")
     public String salvarVendedor(
-            @Valid @ModelAttribute("template.vendedor") VendedorDTO vendedorDTO,
+            @Valid @ModelAttribute("vendedor") VendedorDTO vendedorDTO,
             BindingResult bindingResult,
             Model model
     ) {
